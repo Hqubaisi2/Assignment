@@ -5,7 +5,7 @@ class Customer:
         self._name = name  # Customer's name
         self._email = email  # Customer's email address
         self._phone = phone  # Customer's phone number
-        self._customer_id = customer_id  # Unique identifier for the customer
+        self._customer_id = customer_id  # id for the customer
         self._address = address  # Customer's address
 
     # Getter methods to access private attributes
@@ -40,7 +40,7 @@ class Customer:
     def set_address(self, address):
         self._address = address  # Set customer's address
 
-    # Placeholder method for searching available rooms
+    # method for searching available rooms
     def search_for_available_rooms(self):
         """ This function should allow the customer to search for available rooms. """
         pass  # Implementation will be added later
@@ -50,12 +50,12 @@ class Customer:
         """ This function should allow the customer to book a room. """
         pass  # Implementation will be added later
 
-    # Placeholder method for modifying a reservation
+    # method for modifying a reservation
     def modify_reservation(self, reservation_id):
         """ This function should allow the customer to modify an existing reservation. """
         pass  # Implementation will be added later
 
-    # Placeholder method for canceling a reservation
+    # method for canceling a reservation
     def cancel_reservation(self, reservation_id):
         """ This function should allow the customer to cancel an existing reservation. """
         pass  # Implementation will be added later
@@ -103,12 +103,12 @@ class Reservation:
     def set_status(self, status):
         self._status = status  # Set reservation status
 
-    # Placeholder method to modify an existing reservation
+    # method to modify an existing reservation
     def modify_reservation(self, new_details):
         """ This function should modify an existing reservation. """
         pass  # Implementation will be added later
 
-    # Placeholder method to cancel a reservation
+    # method to cancel a reservation
     def cancel_reservation(self):
         """ This function should cancel the reservation. """
         pass  # Implementation will be added later
@@ -119,9 +119,9 @@ class Room:
     def __init__(self, room_number, room_type, price, availability_status, floor):
         # Initializing room attributes
         self._room_number = room_number  # Room number
-        self._room_type = room_type  # Room type (e.g., Single, Double)
+        self._room_type = room_type  # Room type 
         self._price = price  # Price per night for the room
-        self._availability_status = availability_status  # Room availability status (True for available)
+        self._availability_status = availability_status  # Room availability status 
         self._floor = floor  # Floor number where the room is located
 
     # Getter methods to access private attributes
@@ -156,12 +156,12 @@ class Room:
     def set_floor(self, floor):
         self._floor = floor  # Set floor number
 
-    # Placeholder method to check room availability
+    # method to check room availability
     def check_availability(self):
         """ This function should check the availability of the room. """
         pass  # Implementation will be added later
 
-    # Placeholder method to get room price information
+    # method to get room price information
     def get_price_info(self):
         """ This function should return the price of the room. """
         pass  # Implementation will be added later
@@ -173,8 +173,8 @@ class HotelStaff:
         # Initializing staff attributes
         self._staff_id = staff_id  # Unique staff ID
         self._name = name  # Staff member's name
-        self._position = position  # Staff member's position (e.g., Manager, Receptionist)
-        self._shift = shift  # Staff member's shift (e.g., Morning, Night)
+        self._position = position  # Staff member's position 
+        self._shift = shift  # Staff member's shift 
         self._department = department  # Department where staff member works
 
     # Getter methods to access private attributes
@@ -220,17 +220,17 @@ class HotelStaff:
         pass  # Implementation will be added later
     
 # Creating a Room object
-room = Room(101, "Single", 150.00, True, 1)  # Room number 101, Single room, $150/night, Available, on 1st floor
+room = Room(30, "Single", 179.00, True, 1)  
 print(f"Room number: {room.get_room_number()}, Type: {room.get_room_type()}, Price: {room.get_price()}, Available: {room.get_availability_status()}, Floor: {room.get_floor()}")
 
 # Creating a Customer object
-customer = Customer("Alice", "alice@example.com", "123456789", 1001, "123 Street, City")  # Customer Alice
+customer = Customer("Fatima", "fatima@example.com", "46374636", 1601, "190 Street, City")  
 print(f"Customer Name: {customer.get_name()}, Email: {customer.get_email()}, Phone: {customer.get_phone()}, ID: {customer.get_customer_id()}, Address: {customer.get_address()}")
 
 # Creating a Reservation object
-reservation = Reservation(5001, room, "2024-10-01", "2024-10-05", "Confirmed")  # Reservation for 4 nights
+reservation = Reservation(6735, room, "2024-10-01", "2024-10-05", "Confirmed")  # Reservation for 4 nights
 print(f"Reservation ID: {reservation.get_reservation_id()}, Room: {reservation.get_room().get_room_number()}, Check-in: {reservation.get_check_in_date()}, Check-out: {reservation.get_check_out_date()}, Status: {reservation.get_status()}")
 
 # Creating a HotelStaff object
-staff = HotelStaff(101, "John", "Receptionist", "Morning", "Front Desk")  # Staff member John
+staff = HotelStaff(191, "Steve", "Receptionist", "Morning", "Front Desk")  # Staff member Steve
 print(f"Staff ID: {staff.get_staff_id()}, Name: {staff.get_name()}, Position: {staff.get_position()}, Shift: {staff.get_shift()}, Department: {staff.get_department()}")
