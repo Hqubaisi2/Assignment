@@ -219,18 +219,62 @@ class HotelStaff:
         """ This function should check out the customer. """
         pass  # Implementation will be added later
     
-# Creating a Room object
-room = Room(30, "Single", 179.00, True, 1)  
-print(f"Room number: {room.get_room_number()}, Type: {room.get_room_type()}, Price: {room.get_price()}, Available: {room.get_availability_status()}, Floor: {room.get_floor()}")
+# Creating a Room object for the reservation
+room = Room(101, "2 Queen Beds", 89.95, True, 2)
 
-# Creating a Customer object
-customer = Customer("Fatima", "fatima@example.com", "46374636", 1601, "190 Street, City")  
-print(f"Customer Name: {customer.get_name()}, Email: {customer.get_email()}, Phone: {customer.get_phone()}, ID: {customer.get_customer_id()}, Address: {customer.get_address()}")
+# Creating a Customer object for the booking
+customer = Customer("Ted Vera", "tedvera@mac.com", "505-661-1110", 52523687, "2455 Trinity Drive, Los Alamos, NM 87544")
 
-# Creating a Reservation object
-reservation = Reservation(6735, room, "2024-10-01", "2024-10-05", "Confirmed")  # Reservation for 4 nights
-print(f"Reservation ID: {reservation.get_reservation_id()}, Room: {reservation.get_room().get_room_number()}, Check-in: {reservation.get_check_in_date()}, Check-out: {reservation.get_check_out_date()}, Status: {reservation.get_status()}")
+# Creating a Reservation object for the customer
+reservation = Reservation(15549850358, room, "2024-08-22", "2024-08-24", "Confirmed")
 
-# Creating a HotelStaff object
-staff = HotelStaff(191, "Steve", "Receptionist", "Morning", "Front Desk")  # Staff member Steve
-print(f"Staff ID: {staff.get_staff_id()}, Name: {staff.get_name()}, Position: {staff.get_position()}, Shift: {staff.get_shift()}, Department: {staff.get_department()}")
+staff = HotelStaff(101, "John", "Receptionist", "Morning", "Front Desk")
+
+receipt_border = "=" * 50
+section_divider = "-" * 50
+
+# Displaying the customer's reservation details similar to Figure 1
+print(receipt_border)
+print(" " * 10 + "HOTEL RESERVATION RECEIPT")
+print(receipt_border)
+print(f"Your Reservation Is Confirmed")
+print(f"Thank you for your reservation. Please print your hotel receipt and show it at check-in.")
+print(section_divider)
+print(f"Guest Name: {customer.get_name()}")
+print(f"Email: {customer.get_email()}")
+print(f"Priceline Trip Number: {reservation.get_reservation_id()}")
+print(f"Hotel Confirmation Number: {customer.get_customer_id()}")
+print(section_divider)
+
+# Hotel information
+print(f"{customer.get_address()}")
+print(f"Check-In: Sun, Aug 22, 2024 - 03:00 PM")
+print(f"Check-Out: Tue, Aug 24, 2024 - 12:00 PM")
+print(f"Number of Nights: 2")
+print(f"Number of Rooms: 1")
+print(section_divider)
+
+# Room information
+print(f"Room 1: {customer.get_name()}")
+print(f"Room Type: {room.get_room_type()} / No Smoking / Desk / Safe / Coffee Maker In Room / Hair Dryer")
+print(section_divider)
+
+# Summary of Charges
+room_cost_per_night = room.get_price()
+num_nights = 2
+room_subtotal = room_cost_per_night * num_nights
+taxes_and_fees = 21.58
+total_charges = room_subtotal + taxes_and_fees
+
+print(f"Summary of Charges".center(50))
+print(f"Billing Name: {customer.get_name()}")
+print(f"Credit Card: Mastercard (ending in 9904)")
+print(f"Room Cost: ${room_cost_per_night:.2f} avg. per room, per night")
+print(f"Rooms: 1")
+print(f"Nights: {num_nights}")
+print(f"Room Subtotal: ${room_subtotal:.2f}")
+print(f"Taxes and Fees: ${taxes_and_fees:.2f}")
+print(f"Total Charges: ${total_charges:.2f}")
+print(receipt_border)
+print(" " * 15 + "Thank you for choosing our hotel!")
+print(receipt_border)
